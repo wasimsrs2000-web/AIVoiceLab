@@ -82,9 +82,12 @@ if st.button("Generate Voice"):
             st.audio(wav_audio, format="audio/wav")
         else:
             st.error("Voice generate nahi hui ❌")
-            import streamlit as st
+           import streamlit as st
 
-st.markdown(
-    '<meta name="google-site-verification" content="abcXYZ123456" />',
-    unsafe_allow_html=True
-)
+st.set_page_config(page_title="AI Voice Lab")
+
+st.components.v1.html("""
+<head>
+<meta name="google-site-verification" content="xxxxx" />
+</head>
+""", height=0)
