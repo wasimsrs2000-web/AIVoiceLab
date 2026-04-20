@@ -2,9 +2,17 @@ import streamlit as st
 import os
 import struct
 import google.generativeai as genai
-import google.generativeai as genai
+from google.generativeai import types
 
-# ✅ WAV convert function (IMPORTANT)
+# ✅ Page config (hamesha top par)
+st.set_page_config(page_title="AI Voice Lab")
+
+# ✅ Google verification meta tag (best possible for Streamlit)
+st.components.v1.html("""
+<meta name="google-site-verification" content="abcXYZ123456" />
+""", height=0)
+
+# ✅ WAV convert function
 def convert_to_wav(audio_data):
     sample_rate = 24000
     num_channels = 1
@@ -33,7 +41,7 @@ def convert_to_wav(audio_data):
 
     return header + audio_data
 
-
+# ✅ UI
 st.title("🎤 AI Voice Generator")
 
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -77,19 +85,8 @@ if st.button("Generate Voice"):
                 audio_bytes += chunk.parts[0].inline_data.data
 
         if audio_bytes:
-            wav_audio = convert_to_wav(audio_bytes)  # ✅ अब error नहीं आएगा
+            wav_audio = convert_to_wav(audio_bytes)
             st.success("Voice Generated ✅")
             st.audio(wav_audio, format="audio/wav")
         else:
             st.error("Voice generate nahi hui ❌")
-import streamlit as st
-
-st.set_page_config(page_title="AI Voice Lab")
-
-st.title("AI Voice Lab")
-
-st.components.v1.html("""
-<head>
-<meta name="google-site-verification" content="abcXYZ123456" />
-</head>
-""", height=0)
