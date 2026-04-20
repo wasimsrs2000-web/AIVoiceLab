@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import struct
 import google.generativeai as genai
-from google.genai import types
+import google.generativeai as genai
 
 # ✅ WAV convert function (IMPORTANT)
 def convert_to_wav(audio_data):
