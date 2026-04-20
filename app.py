@@ -82,3 +82,9 @@ if st.button("Generate Voice"):
             st.audio(wav_audio, format="audio/wav")
         else:
             st.error("Voice generate nahi hui ❌")
+            import streamlit as st
+
+st.markdown(
+    '<meta name="google-site-verification" content="abcXYZ123456" />',
+    unsafe_allow_html=True
+)
