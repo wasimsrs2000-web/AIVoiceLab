@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 import struct
-from google import genai
+import google.generativeai as genai
 from google.genai import types
 
 # ✅ WAV convert function (IMPORTANT)
